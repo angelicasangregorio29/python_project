@@ -1,4 +1,5 @@
 import fastf1
+import os
 import pandas as pd
 import numpy as np
 from sklearn.ensemble import RandomForestRegressor
@@ -8,6 +9,8 @@ from sklearn.metrics import mean_squared_error, r2_score
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Ensure the cache directory exists before enabling fastf1 cache
+os.makedirs('cache', exist_ok=True)
 fastf1.Cache.enable_cache('cache')
 
 def fetch_driver_performance_data(year, rounds):
